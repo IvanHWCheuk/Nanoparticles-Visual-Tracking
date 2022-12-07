@@ -49,6 +49,7 @@ for ind = 1:video.NumFrames-1
     radius = sqrt(newstat.Area / pi);
     
     % Display each frame with label and outline on objects
+    % See merged videos at "Movie S6.mp4"
     imshow(vidFrame); hold on
     for k = 1 : length(newBound) % Don't need loop here since only one
         b = newBound{k};
