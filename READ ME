@@ -1,0 +1,22 @@
+Video Analysis Method Used
+
+Particle data, including velocity, size, and outline, are collected from the artificial intelligent particle identification program in MATLAB. 
+Built-in open source functions in the MathWorks image processing toolbox are used. Videos are split into frames and pixels are binarized into logic matrices. 
+First, binary morphological operation smoothens the shade consistency of particles and background spaces. 
+Each frame converts to rough binary values according to the averaged cutoff threshold, with 0 being background pixel, 1 being particle pixel. 
+Then, neighboring particle pixels are categorized into groups defined as potential particles. 
+These are given calculated tags of centroid, size (defined as number of pixels), major axis length, and boundary location. 
+Potential particles’ size are compared to a minimum size threshold, removing background white noise and tagging the remaining groups as real particles. 
+Finally, minimum change calculations allow automatic tracking on the same particle each frame. 
+Defining a centroid lock on the targeted tracking particle in frame 1, the particle with the closest centroid in the next frame is calculated to be the same particle. 
+With a loop through all frames and observed pixel-nm conversion, the actual size, location, and velocity of the target particle is found and stored in the result arrays. 
+The exact green particle outline is plotted on each frame.
+
+
+Important note:
+The file used originates from splitting "Movie S6.mp4" into three parts with google drive links below in order.
+https://drive.google.com/file/d/1huYeby9MzjHiI4C8_nzoDRXQXQ8OW2dR/view?usp=share_link
+https://drive.google.com/file/d/1wQh-CeYscI2stJ8oaq-Jtk7hyBjlXezT/view?usp=share_link
+https://drive.google.com/file/d/1zC6P7kqPMJBa_3xn3P56a8Uciwz988SS/view?usp=share_link
+
+Each .m file is taylored to its matching video by adjusting pixel size tolerance and traced particle tag.
